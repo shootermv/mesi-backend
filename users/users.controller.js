@@ -10,6 +10,8 @@ router.get('/current', getCurrent);
 router.get('/:id', getById);
 router.put('/:id', update);
 router.delete('/:id', _delete);
+router.post('/task', assign);
+router.put('/task/:id', changeStatus)
 
 module.exports = router;
 
@@ -54,3 +56,22 @@ function _delete(req, res, next) {
         .then(() => res.json({}))
         .catch(err => next(err));
 }
+
+function assign(req, res, next) {
+    const {user, task} = req.body;
+    userService.assignTask(user, task)        
+        .then(() => {
+            res.io.emit("task-assigned", task);
+            res.json({});
+        })
+        .catch(err => next(err));
+}
+
+function changeStatus(req, res, next) {
+    userService.changeStatus(req.body.user, req.body.task)
+        .then((task) => {
+            res.io.emit("status-change", task);
+            res.json(task);
+        })
+        .catch(err => next(err));
+}    
