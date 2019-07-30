@@ -2,6 +2,14 @@
 const router = express.Router();
 const userService = require('./user.service');
 
+// seed stuff
+const Seeder = require('../_helpers/seed/seeder');
+if (process.env.SEED) {
+  const s = new Seeder(userService);
+  s.seedDB();       
+}
+
+
 // routes
 router.post('/authenticate', authenticate);
 router.post('/register', register);

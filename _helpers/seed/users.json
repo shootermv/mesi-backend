@@ -1,0 +1,15 @@
+[{
+    "firstName": "admin",
+    "lastName": "adminovich",
+    "username": "admin",
+    "role": "admin",
+    "password": "12345"
+},{
+
+    "firstName": "Matt",
+    "lastName": "Zalen",
+    "username": "Matt",
+    "role": "developer",
+    "tasks": [],
+    "password": "12345"
+}]
