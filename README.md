@@ -8,4 +8,5 @@ example .env file
 ```shell
 DB="name-of-your-mongo-DB"
 secret="super_secret_key"
+SEED=true # if you want initally to have some data
 ```
