@@ -39,3 +39,6 @@ typings
 
 # env
 .env
+
+# vscode
+launch.json
