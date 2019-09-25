@@ -4,13 +4,16 @@ const mongoose = require('mongoose');
 
 class Seeder {
     //_userSerice;  
-    constructor(User) {
+    constructor(User, Task) {
       this._userService = User;
+      this._taskService = Task;
     }
 
     async seedDB() {
         await this.cleanDB();
         await this.seedUsers();
+        await this.seedTasks();
+        console.log('seeding all finished...');
     }
 
     // cleans db 
@@ -23,17 +26,22 @@ class Seeder {
     }
 
     // seed users
-    async  seedUsers() {
+    async seedUsers() {
         console.log('seeding users...');
-        require('./users.json').forEach(async user=>{
-            const newUser = await this._userService.create(user);
-            if (user.role === 'developer') {
-                // assign some tasks to developers
-               await this._userService.assignTask(newUser, {_id: mongoose.Types.ObjectId(), summary: 'task num 1', status: 0});
-            }
-        
-        })
+        for (let user of require('./users.json')) {
+            await this._userService.create(user);   
+        }
+        console.log('seeding users finished...');
     }
+
+    // seed tasks
+    async seedTasks() {
+        console.log('seeding tasks...');
+        for (let task of require('./tasks.json')) {
+            await this._taskService.create(task);   
+        }
+        console.log('seeding tasks finished...');
+    }    
 
 }
 module.exports = Seeder; 
