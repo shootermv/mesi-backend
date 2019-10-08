@@ -1,11 +1,11 @@
 ﻿const express = require('express');
 const router = express.Router();
 const userService = require('./user.service');
-const taskService = require('../tasks/task.service');
 
 // seed stuff
-const Seeder = require('../_helpers/seed/seeder');
 if (process.env.SEED) {
+  const taskService = require('../tasks/task.service');  
+  const Seeder = require('../_helpers/seed/seeder');
   const s = new Seeder(userService, taskService);
   s.seedDB();       
 }
