@@ -21,7 +21,7 @@
         "mongodb": "^3.0.10",
         "mongoose": "^5.6.13",
         "rootpath": "^0.1.2",
-        "socket.io": "^2.2.0"
+        "socket.io": "^2.4.0"
     },
     "devDependencies": {
         "nodemon": "^1.19.1"
