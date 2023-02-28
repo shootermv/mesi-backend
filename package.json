@@ -17,7 +17,7 @@
         "dotenv": "^6.2.0",
         "express": "^4.16.3",
         "express-jwt": "^6.0.0",
-        "jsonwebtoken": "^8.2.2",
+        "jsonwebtoken": "^9.0.0",
         "mongodb": "^3.1.13",
         "mongoose": "^5.6.13",
         "rootpath": "^0.1.2",
